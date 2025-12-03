@@ -1,0 +1,88 @@
+/*
+	Theme tokens and selectors
+	- Base light palette in :root (default)
+	- System preference: @media (prefers-color-scheme: dark) when toggle is unchecked
+	- Explicit dark: #theme-toggle:checked forces dark mode
+*/
+
+:root {
+  /* Colors (light palette - default) */
+  --color-background: #f9fafb;
+  --color-foreground: #1e293b;
+  --color-card: #ffffff;
+  --color-card-foreground: #1e293b;
+  --color-popover: #f1f5f9;
+  --color-popover-foreground: #1e293b;
+  --color-primary: #009ee0; /* Cyan */
+  --color-primary-foreground: #000000;
+  --color-secondary: #ffed00; /* Yellow */
+  --color-secondary-foreground: #000000;
+  --color-accent: #e2007a; /* Magenta */
+  --color-accent-foreground: #ffffff;
+  --color-muted: #334155;
+  --color-muted-foreground: #f1f5f9;
+  --color-border: #e5e7eb;
+  --color-input: #e5e7eb;
+  --color-ring: #1de285;
+  --color-destructive: #ff611f;
+  --color-destructive-foreground: #ffffff;
+  --color-muted-foreground-rgb: 51, 65, 85;
+  --shadow-s: 0 1px 2px rgba(15, 23, 42, 0.06);
+  --shadow-m: 0 8px 24px rgba(15, 23, 42, 0.08);
+}
+
+/* System preference: dark mode when toggle is unchecked and user prefers dark */
+@media (prefers-color-scheme: dark) {
+  :root:not(:has(#theme-toggle:checked)) {
+    color-scheme: dark;
+    --color-background: #0f172a;
+    --color-foreground: #f8fafc;
+    --color-card: #1e293b;
+    --color-card-foreground: #f8fafc;
+    --color-popover: #1e293b;
+    --color-popover-foreground: #f8fafc;
+    --color-primary: #e2007a; /* Complementary to Cyan */
+    --color-primary-foreground: #ffffff;
+    --color-secondary: #009ee0; /* Complementary to Yellow */
+    --color-secondary-foreground: #ffffff;
+    --color-accent: #ffed00; /* Complementary to Magenta */
+    --color-accent-foreground: #000000;
+    --color-muted: #94a3b8;
+    --color-muted-foreground: #f1f5f9;
+    --color-destructive: #ff611f;
+    --color-destructive-foreground: #0f172a;
+    --color-border: #334155;
+    --color-input: #334155;
+    --color-ring: #1de285;
+    --color-muted-foreground-rgb: 148, 163, 184;
+    --shadow-s: 0 1px 2px rgba(0, 0, 0, 0.4);
+    --shadow-m: 0 8px 24px rgba(0, 0, 0, 0.35);
+  }
+}
+
+/* Explicit dark: toggle checked forces dark mode (using sibling combinator ~ *) */
+#theme-toggle:checked ~ * {
+  color-scheme: dark;
+  --color-background: #0f172a;
+  --color-foreground: #f8fafc;
+  --color-card: #1e293b;
+  --color-card-foreground: #f8fafc;
+  --color-popover: #1e293b;
+  --color-popover-foreground: #f8fafc;
+  --color-primary: #e2007a;
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #009ee0;
+  --color-secondary-foreground: #ffffff;
+  --color-accent: #ffed00;
+  --color-accent-foreground: #000000;
+  --color-muted: #94a3b8;
+  --color-muted-foreground: #f1f5f9;
+  --color-border: #334155;
+  --color-input: #334155;
+  --color-ring: #1de285;
+  --color-destructive: #ff611f;
+  --color-destructive-foreground: #0f172a;
+  --color-muted-foreground-rgb: 148, 163, 184;
+  --shadow-s: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-m: 0 8px 24px rgba(0, 0, 0, 0.35);
+}

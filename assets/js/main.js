@@ -53,7 +53,7 @@
 const observerOptions = {
 	root: null,                        // Use the browser viewport
 	rootMargin: '0px 0px -10% 0px',    // Trigger 10% before fully visible
-	threshold: 0.1,                     // Need 10% visibility to trigger
+	threshold: 0.1,                    // Need 10% visibility to trigger
 };
 
 /**
@@ -320,46 +320,98 @@ function initActiveNav() {
 }
 
 // ==========================================================================
-// 5. INITIALIZATION
+// 5. WORK CARDS (BRANDING / EDITORIAL / CARTELERÍA / INFOGRAFÍA)
+// ==========================================================================
+
+/**
+ * Make project cards in each work section clickable so they update
+ * the description text below the grid.
+ *
+ * HTML expectations (por sección):
+ * - .work-section
+ *   - .work-card[data-description="texto..."]
+ *   - .work-description > p
+ */
+function initWorkCards() {
+	const workSections = document.querySelectorAll('.work-section');
+
+	workSections.forEach((section) => {
+		const cards = section.querySelectorAll('.work-card');
+		const descriptionBox = section.querySelector('.work-description p');
+
+		if (!cards.length || !descriptionBox) return;
+
+		cards.forEach((card) => {
+			card.addEventListener('click', () => {
+				const text = card.dataset.description || '';
+
+				// Remove active state from all cards in this section
+				cards.forEach((c) => c.classList.remove('is-active'));
+				card.classList.add('is-active');
+
+				// Update description text
+				descriptionBox.textContent = text;
+			});
+		});
+	});
+}
+
+// ==========================================================================
+// 6. MOBILE NAVIGATION TOGGLE
+// ==========================================================================
+
+/**
+ * Simple mobile nav toggle:
+ * - .nav-toggle (button hamburguesa)
+ * - .nav-links (ul con los enlaces)
+ *
+ * CSS espera:
+ * - .nav-links.is-open → menú desplegado en mobile
+ */
+function initMobileNav() {
+	const navToggle = document.querySelector('.nav-toggle');
+	const navLinks = document.querySelector('.nav-links');
+
+	if (!navToggle || !navLinks) return;
+
+	navToggle.addEventListener('click', () => {
+		const isOpen = navToggle.getAttribute('aria-expanded') === 'true';
+		navToggle.setAttribute('aria-expanded', String(!isOpen));
+		navLinks.classList.toggle('is-open');
+	});
+
+	// Cerrar menú al hacer clic en un enlace (opcional pero buena UX)
+	navLinks.querySelectorAll('a[href^="#"]').forEach((link) => {
+		link.addEventListener('click', () => {
+			navLinks.classList.remove('is-open');
+			navToggle.setAttribute('aria-expanded', 'false');
+		});
+	});
+}
+
+// ==========================================================================
+// 7. INITIALIZATION
 // ==========================================================================
 
 /**
  * DOMContentLoaded: The safe time to run DOM-manipulating JavaScript.
- *
- * 🎓 WHY DOMContentLoaded?
- * - Fires when HTML is fully parsed (DOM is ready)
- * - Doesn't wait for images/stylesheets to load (that's 'load' event)
- * - Safe to query and manipulate DOM elements
- *
- * If your script is in <head> without 'defer', this is essential.
- * If your script is at end of <body> or has 'defer', it's optional but good practice.
  */
 document.addEventListener('DOMContentLoaded', () => {
 	initScrollAnimations();
 	initSmoothScroll();
 	initActiveNav();
+	initWorkCards();
+	initMobileNav();
 
-	console.log('🚀 Grade 1 Demo: Vanilla scroll animations initialized');
+	console.log('🚀 Portfolio: scroll animations, nav & work cards initialized');
 });
 
 // ==========================================================================
-// 6. CLEANUP (FOR SPA ENVIRONMENTS)
+// 8. CLEANUP (FOR SPA ENVIRONMENTS)
 // ==========================================================================
 
 /**
  * Cleanup function for Single Page Application (SPA) routing.
- *
- * 🎓 WHY IS CLEANUP IMPORTANT?
- * In SPAs (React, Vue, etc.), pages don't fully reload when navigating.
- * If you don't disconnect observers, they keep watching elements that
- * may have been removed, causing memory leaks and bugs.
- *
- * 📐 WHEN TO CALL THIS:
- * - Before navigating away from this page in an SPA
- * - In React: useEffect cleanup function
- * - In Vue: onUnmounted lifecycle hook
- *
- * For traditional multi-page sites, this isn't needed (page reload cleans up).
  */
 window.cleanupScrollObservers = () => {
 	singleObserver.disconnect();  // Stop observing all elements

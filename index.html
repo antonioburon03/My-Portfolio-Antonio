@@ -1,158 +1,368 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="" rel="stylesheet">
+    <title>Portfolio · Antonio Burón</title>
+
+    <!-- Fuentes -->
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <!-- Arreglado el enlace de Typekit -->
+    <link rel="stylesheet" href="https://use.typekit.net/zor0hsf.css">
+
+    <!-- Tus estilos -->
     <link rel="stylesheet" href="./assets/css/index.css">
-    <link rel="stylesheet" href="https://u se.typekit.net/zor0hsf.css"> 
-    <script src="./assets/js/main.js" defer></script>   
+
+    <!-- Tu JS -->
+    <script src="./assets/js/main.js" defer></script>
 </head>
 <body>
-	<!-- Skip link for accessibility -->
-	<a href="#main" class="skip-link">Skip to main content</a>
+    <!-- Skip link para accesibilidad -->
+    <a href="#main" class="skip-link">Ir al contenido principal</a>
 
-	<!-- Navigation -->
-	<nav class="nav">
-		<div class="nav-container">
-			<a href="#" class="nav-logo">Portfolio</a>
-			<ul class="nav-links">
-				<li><a href="#hero">Home</a></li>
-				<li><a href="#about">About</a></li>
-				<li><a href="#projects">Projects</a></li>
-				<li><a href="#contact">Contact</a></li>
-			</ul>
-		</div>
-	</nav>
+    <!-- Navegación -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">Antonio Burón</a>
+            <button class="nav-toggle" aria-expanded="false" aria-label="Abrir menú">
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#hero">Inicio</a></li>
+                <li><a href="#about">Sobre mí</a></li>
+                <li><a href="#branding">Branding</a></li>
+                <li><a href="#editorial">Editorial</a></li>
+                <li><a href="#carteleria">Cartelería</a></li>
+                <li><a href="#infografia">Infografía</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
 
-	<main id="main">
-		<!-- Hero Section -->
-		<section id="hero" class="hero">
-			<div class="hero-bg parallax-bg"></div>
-			<div class="hero-content">
-				<h1 class="hero-title animate-on-scroll">Antonio Burón</h1>
-				<p class="hero-subtitle animate-on-scroll">Illustrator and Graphic Designer</p>
-				<a href="#projects" class="btn animate-on-scroll">Mis proyectos</a>
-			</div>
-			<div class="scroll-indicator">
-				<span>Scroll</span>
-				<div class="scroll-arrow"></div>
-			</div>
-		</section>
+    <main id="main">
+        <!-- Hero -->
+        <section id="hero" class="hero">
+            <div class="hero-bg parallax-bg"></div>
+            <div class="hero-content">
+                <h1 class="hero-title animate-on-scroll">Antonio Burón</h1>
+                <p class="hero-subtitle animate-on-scroll">Ilustrador y diseñador gráfico</p>
+                <a href="#branding" class="btn animate-on-scroll">Ver trabajos</a>
+            </div>
+            <div class="scroll-indicator">
+                <span>Scroll</span>
+                <div class="scroll-arrow"></div>
+            </div>
+        </section>
 
-		<!-- About Section -->
-		<section id="about" class="section about">
-			<div class="container">
-				<h2 class="section-title animate-on-scroll">About Me</h2>
-				<div class="about-grid">
-					<div class="about-text animate-on-scroll">
-						<p>
-							I'm a passionate front-end developer with 5 years of experience
-							building responsive, accessible, and performant web applications.
-						</p>
-						<p>
-							My focus is on creating seamless user experiences through clean code
-							and thoughtful design. I believe in the power of vanilla JavaScript
-							and modern CSS to create stunning interfaces without framework bloat.
-						</p>
-					</div>
-					<div class="skills-grid" data-reveal-stagger>
-						<div class="skill-card">
-							<span class="skill-icon">🎨</span>
-							<h3>CSS/Sass</h3>
-							<div class="skill-bar"><div class="skill-fill" style="--fill: 95%"></div></div>
-						</div>
-						<div class="skill-card">
-							<span class="skill-icon">⚡</span>
-							<h3>JavaScript</h3>
-							<div class="skill-bar"><div class="skill-fill" style="--fill: 90%"></div></div>
-						</div>
-						<div class="skill-card">
-							<span class="skill-icon">📱</span>
-							<h3>Responsive</h3>
-							<div class="skill-bar"><div class="skill-fill" style="--fill: 98%"></div></div>
-						</div>
-						<div class="skill-card">
-							<span class="skill-icon">♿</span>
-							<h3>A11y</h3>
-							<div class="skill-bar"><div class="skill-fill" style="--fill: 85%"></div></div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+        <!-- About -->
+        <section id="about" class="section about">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll">Sobre mí</h2>
+                <div class="about-grid">
+                    <div class="about-text animate-on-scroll">
+                        <p>
+                            Soy ilustrador y diseñador gráfico especializado en branding, editorial,
+                            cartelería e infografía. Me interesa conectar concepto y forma para construir
+                            piezas claras, memorables y cuidadas al detalle.
+                        </p>
+                        <p>
+                            Trabajo con una base sólida de dibujo y composición, integrando tipografía,
+                            color e ilustración para crear identidades visuales coherentes y piezas
+                            editoriales legibles y atractivas, tanto en digital como en papel.
+                        </p>
+                    </div>
 
-		<!-- Projects Section -->
-		<section id="projects" class="section projects">
-			<div class="container">
-				<h2 class="section-title animate-on-scroll">Featured Projects</h2>
-				<div class="projects-grid" data-reveal-stagger>
-					<article class="project-card">
-						<div class="project-image">
-							<img src="https://picsum.photos/400/300?random=1" alt="E-commerce Platform" loading="lazy" />
-						</div>
-						<div class="project-content">
-							<h3>E-commerce Platform</h3>
-							<p>A fully responsive online store with cart functionality and payment integration.</p>
-							<div class="project-tags">
-								<span>HTML</span><span>CSS</span><span>JS</span>
-							</div>
-						</div>
-					</article>
-					<article class="project-card">
-						<div class="project-image">
-							<img src="https://picsum.photos/400/300?random=2" alt="Dashboard UI" loading="lazy" />
-						</div>
-						<div class="project-content">
-							<h3>Analytics Dashboard</h3>
-							<p>Real-time data visualization dashboard with dark mode support.</p>
-							<div class="project-tags">
-								<span>CSS Grid</span><span>Charts</span><span>API</span>
-							</div>
-						</div>
-					</article>
-					<article class="project-card">
-						<div class="project-image">
-							<img src="https://picsum.photos/400/300?random=3" alt="Mobile App Landing" loading="lazy" />
-						</div>
-						<div class="project-content">
-							<h3>App Landing Page</h3>
-							<p>Conversion-optimized landing page with scroll animations.</p>
-							<div class="project-tags">
-								<span>Animation</span><span>A/B Test</span><span>SEO</span>
-							</div>
-						</div>
-					</article>
-				</div>
-			</div>
-		</section>
+                    <div class="skills-grid" data-reveal-stagger>
+                        <div class="skill-card">
+                            <span class="skill-icon">🖋️</span>
+                            <h3>Ilustración</h3>
+                            <div class="skill-bar"><div class="skill-fill" style="--fill: 95%"></div></div>
+                        </div>
+                        <div class="skill-card">
+                            <span class="skill-icon">🔤</span>
+                            <h3>Branding & tipografía</h3>
+                            <div class="skill-bar"><div class="skill-fill" style="--fill: 92%"></div></div>
+                        </div>
+                        <div class="skill-card">
+                            <span class="skill-icon">📚</span>
+                            <h3>Diseño editorial</h3>
+                            <div class="skill-bar"><div class="skill-fill" style="--fill: 90%"></div></div>
+                        </div>
+                        <div class="skill-card">
+                            <span class="skill-icon">📊</span>
+                            <h3>Infografía</h3>
+                            <div class="skill-bar"><div class="skill-fill" style="--fill: 88%"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-		<!-- Contact Section -->
-		<section id="contact" class="section contact">
-			<div class="container">
-				<h2 class="section-title animate-on-scroll">Get In Touch</h2>
-				<div class="contact-content animate-on-scroll">
-					<p>Interested in working together? Let's talk about your project.</p>
-					<a href="mailto:hello@example.com" class="btn btn-primary">Say Hello</a>
-					<div class="social-links">
-						<a href="#" aria-label="GitHub">GitHub</a>
-						<a href="#" aria-label="LinkedIn">LinkedIn</a>
-						<a href="#" aria-label="Twitter">Twitter</a>
-					</div>
-				</div>
-			</div>
-		</section>
-	</main>
+        <!-- BRANDING -->
+        <section id="branding" class="section work-section">
+            <div class="container">
+                <header class="section-header">
+                    <h2 class="section-title animate-on-scroll">Branding</h2>
+                    <p class="section-intro animate-on-scroll">
+                        Identidades visuales coherentes, adaptables y con un lenguaje propio.
+                    </p>
+                </header>
 
-	<!-- Footer -->
-	<footer class="footer">
-		<div class="container">
-			<p>&copy; 2025 Jane Developer. Built with vanilla HTML, CSS & JS.</p>
-			<a href="#hero" class="back-to-top" aria-label="Back to top">↑</a>
-		</div>
-	</footer>
+                <div class="cards-grid" data-reveal-stagger>
+                    <!-- Tarjeta 1 -->
+                    <button
+                        type="button"
+                        class="work-card animate-on-scroll"
+                        data-description="Identidad visual para una cafetería de especialidad. Trabajo de logotipo, sistema tipográfico, paleta de color y aplicaciones en packaging y señalética."
+                    >
+                        <figure class="work-card-figure">
+                            <img src="https://picsum.photos/400/300?random=11"
+                                 alt="Branding cafetería de especialidad"
+                                 loading="lazy">
+                            <figcaption class="work-card-caption">Cafetería de especialidad</figcaption>
+                        </figure>
+                    </button>
+
+                    <!-- Tarjeta 2 -->
+                    <button
+                        type="button"
+                        class="work-card animate-on-scroll"
+                        data-description="Rebranding para una marca de alimentación. Limpieza del logotipo, nueva jerarquía de etiquetas y sistema gráfico para toda la gama de productos."
+                    >
+                        <figure class="work-card-figure">
+                            <img src="https://picsum.photos/400/300?random=12"
+                                 alt="Rebranding marca de alimentación"
+                                 loading="lazy">
+                            <figcaption class="work-card-caption">Marca de alimentación</figcaption>
+                        </figure>
+                    </button>
+
+                    <!-- Tarjeta 3 -->
+                    <button
+                        type="button"
+                        class="work-card animate-on-scroll"
+                        data-description="Identidad para un festival cultural. Aplicaciones en cartelería, redes sociales y merch, manteniendo una estética reconocible y flexible."
+                    >
+                        <figure class="work-card-figure">
+                            <img src="https://picsum.photos/400/300?random=13"
+                                 alt="Identidad festival cultural"
+                                 loading="lazy">
+                            <figcaption class="work-card-caption">Festival cultural</figcaption>
+                        </figure>
+                    </button>
+                </div>
+
+                <div class="work-description" aria-live="polite">
+                    <p>Haz clic en un proyecto de branding para ver una breve descripción.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- EDITORIAL -->
+        <section id="editorial" class="section work-section">
+            <div class="container">
+                <header class="section-header">
+                    <h2 class="section-title animate-on-scroll">Editorial</h2>
+                    <p class="section-intro animate-on-scroll">
+                        Libros, revistas y publicaciones donde el contenido y la forma van de la mano.
+                    </p>
+                </header>
+
+                <div class="cards-grid" data-reveal-stagger>
+                    <!-- Tarjeta 1 -->
+                    <button
+                        type="button"
+                        class="work-card animate-on-scroll"
+                        data-description="Maquetación e ilustración para una colección de libros de fauna. Uso de rejilla flexible, sistemas de iconos y mapas para facilitar la lectura."
+                    >
+                        <figure class="work-card-figure">
+                            <img src="https://picsum.photos/400/300?random=21"
+                                 alt="Colección de libros de fauna"
+                                 loading="lazy">
+                            <figcaption class="work-card-caption">Colección de fauna</figcaption>
+                        </figure>
+                    </button>
+
+                    <!-- Tarjeta 2 -->
+                    <button
+                        type="button"
+                        class="work-card animate-on-scroll"
+                        data-description="Diseño de una revista cultural con foco en tipografía y ritmo de página. Equilibrio entre texto, imagen y espacios en blanco."
+                    >
+                        <figure class="work-card-figure">
+                            <img src="https://picsum.photos/400/300?random=22"
+                                 alt="Revista cultural"
+                                 loading="lazy">
+                            <figcaption class="work-card-caption">Revista cultural</figcaption>
+                        </figure>
+                    </button>
+
+                    <!-- Tarjeta 3 -->
+                    <button
+                        type="button"
+                        class="work-card animate-on-scroll"
+                        data-description="Catálogo de producto con estructura modular, pensado para crecer con nuevas colecciones manteniendo la coherencia visual."
+                    >
+                        <figure class="work-card-figure">
+                            <img src="https://picsum.photos/400/300?random=23"
+                                 alt="Catálogo de producto"
+                                 loading="lazy">
+                            <figcaption class="work-card-caption">Catálogo de producto</figcaption>
+                        </figure>
+                    </button>
+                </div>
+
+                <div class="work-description" aria-live="polite">
+                    <p>Haz clic en un proyecto editorial para ver una breve descripción.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CARTELERÍA -->
+        <section id="carteleria" class="section work-section">
+            <div class="container">
+                <header class="section-header">
+                    <h2 class="section-title animate-on-scroll">Cartelería</h2>
+                    <p class="section-intro animate-on-scroll">
+                        Carteles ilustrados y tipográficos para eventos, campañas y espacios urbanos.
+                    </p>
+                </header>
+
+                <div class="cards-grid" data-reveal-stagger>
+                    <!-- Tarjeta 1 -->
+                    <button
+                        type="button"
+                        class="work-card animate-on-scroll"
+                        data-description="Serie de carteles ilustrados para un ciclo de cine. Cada pieza interpreta una película con un código cromático propio."
+                    >
+                        <figure class="work-card-figure">
+                            <img src="https://picsum.photos/400/300?random=31"
+                                 alt="Carteles para ciclo de cine"
+                                 loading="lazy">
+                            <figcaption class="work-card-caption">Ciclo de cine</figcaption>
+                        </figure>
+                    </button>
+
+                    <!-- Tarjeta 2 -->
+                    <button
+                        type="button"
+                        class="work-card animate-on-scroll"
+                        data-description="Cartel tipográfico para un concierto. Trabajo de jerarquía, contraste y textura para destacar la información clave."
+                    >
+                        <figure class="work-card-figure">
+                            <img src="https://picsum.photos/400/300?random=32"
+                                 alt="Cartel para concierto"
+                                 loading="lazy">
+                            <figcaption class="work-card-caption">Concierto</figcaption>
+                        </figure>
+                    </button>
+
+                    <!-- Tarjeta 3 -->
+                    <button
+                        type="button"
+                        class="work-card animate-on-scroll"
+                        data-description="Cartel para campaña social, combinando ilustración y datos para comunicar de forma directa y empática."
+                    >
+                        <figure class="work-card-figure">
+                            <img src="https://picsum.photos/400/300?random=33"
+                                 alt="Cartel campaña social"
+                                 loading="lazy">
+                            <figcaption class="work-card-caption">Campaña social</figcaption>
+                        </figure>
+                    </button>
+                </div>
+
+                <div class="work-description" aria-live="polite">
+                    <p>Haz clic en un cartel para ver una breve descripción.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- INFOGRAFÍA -->
+        <section id="infografia" class="section work-section">
+            <div class="container">
+                <header class="section-header">
+                    <h2 class="section-title animate-on-scroll">Infografía</h2>
+                    <p class="section-intro animate-on-scroll">
+                        Visualización de datos y procesos complejos de forma clara y atractiva.
+                    </p>
+                </header>
+
+                <div class="cards-grid" data-reveal-stagger>
+                    <!-- Tarjeta 1 -->
+                    <button
+                        type="button"
+                        class="work-card animate-on-scroll"
+                        data-description="Infografía sobre vivienda y construcción, basada en datos reales. Uso de iconografía y códigos de color para diferenciar edades y situaciones."
+                    >
+                        <figure class="work-card-figure">
+                            <img src="https://picsum.photos/400/300?random=41"
+                                 alt="Infografía sobre vivienda y construcción"
+                                 loading="lazy">
+                            <figcaption class="work-card-caption">Vivienda y construcción</figcaption>
+                        </figure>
+                    </button>
+
+                    <!-- Tarjeta 2 -->
+                    <button
+                        type="button"
+                        class="work-card animate-on-scroll"
+                        data-description="Gráficos narrativos para explicar procesos científicos de manera sencilla, pensados para público joven."
+                    >
+                        <figure class="work-card-figure">
+                            <img src="https://picsum.photos/400/300?random=42"
+                                 alt="Infografía procesos científicos"
+                                 loading="lazy">
+                            <figcaption class="work-card-caption">Procesos científicos</figcaption>
+                        </figure>
+                    </button>
+
+                    <!-- Tarjeta 3 -->
+                    <button
+                        type="button"
+                        class="work-card animate-on-scroll"
+                        data-description="Panel infográfico para exposición, combinando ilustración, datos y texto en un formato grande legible a distancia."
+                    >
+                        <figure class="work-card-figure">
+                            <img src="https://picsum.photos/400/300?random=43"
+                                 alt="Panel infográfico para exposición"
+                                 loading="lazy">
+                            <figcaption class="work-card-caption">Panel expositivo</figcaption>
+                        </figure>
+                    </button>
+                </div>
+
+                <div class="work-description" aria-live="polite">
+                    <p>Haz clic en una infografía para ver una breve descripción.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contacto -->
+        <section id="contact" class="section contact">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll">Contacto</h2>
+                <div class="contact-content animate-on-scroll">
+                    <p>¿Tienes un proyecto en mente? Podemos hablar y ver cómo darle forma.</p>
+                    <a href="mailto:tucorreo@ejemplo.com" class="btn btn-primary">Escríbeme</a>
+                    <div class="social-links">
+                        <a href="#" aria-label="Instagram">Instagram</a>
+                        <a href="#" aria-label="Behance">Behance</a>
+                        <a href="#" aria-label="LinkedIn">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Antonio Burón. Diseño e ilustración.</p>
+            <a href="#hero" class="back-to-top" aria-label="Volver al inicio">↑</a>
+        </div>
+    </footer>
 </body>
 </html>

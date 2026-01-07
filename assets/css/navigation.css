@@ -1,42 +1,103 @@
-/* --------------------------------------------------------------------------
-   4. Navigation
-   -------------------------------------------------------------------------- */
-.nav {
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	z-index: 100;
-	background: rgba(15, 15, 15, 0.9);
-	backdrop-filter: blur(10px);
-	padding: var(--space-md) 0;
+/* ─────────────────────────────────────────────
+   Navegación / Header
+   ───────────────────────────────────────────── */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  border-bottom: 1px solid var(--border);
+  background: rgba(244, 243, 239, 0.96);
+  backdrop-filter: blur(8px);
 }
 
-.nav-container {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	width: min(90%, 1200px);
-	margin-inline: auto;
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  max-width: 980px;
+  margin-inline: auto;
 }
 
-.nav-logo {
-	font-size: var(--text-xl);
-	font-weight: 700;
+.site-title {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: var(--text);
 }
 
-.nav-links {
-	display: flex;
-	gap: var(--space-lg);
-	list-style: none;
+/* Botón menú hamburguesa (mobile) */
+.menu-toggle {
+  border: none;
+  background: none;
+  padding: 0.3rem;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  cursor: pointer;
 }
 
-.nav-links a {
-	color: var(--color-text-muted);
-	transition: color 0.3s;
+.menu-toggle span {
+  width: 18px;
+  height: 2px;
+  background: var(--text);
 }
 
-.nav-links a:hover,
-.nav-links a:focus {
-	color: var(--color-accent);
+/* Navegación principal */
+.main-nav {
+  display: none;
+}
+
+.main-nav ul {
+  list-style: none;
+  padding: 0.75rem 1rem 1rem;
+  margin: 0;
+  border-top: 1px solid var(--border);
+  background: var(--bg-alt);
+}
+
+.main-nav li + li {
+  margin-top: 0.25rem;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Nav abierta en mobile */
+.main-nav.is-open {
+  display: block;
+}
+
+/* Desktop nav */
+@media (min-width: 768px) {
+  .menu-toggle {
+    display: none;
+  }
+
+  .main-nav {
+    display: block;
+  }
+
+  .main-nav ul {
+    border-top: none;
+    background: transparent;
+    padding: 0;
+    display: flex;
+    gap: 1.4rem;
+  }
+
+  .main-nav li + li {
+    margin-top: 0;
+  }
+
+  .main-nav a {
+    font-size: 0.78rem;
+  }
 }

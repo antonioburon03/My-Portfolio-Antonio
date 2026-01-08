@@ -1,43 +1,67 @@
 /* ─────────────────────────────────────────────
-   Layout: grids, responsive general, footer
+   Layout específico: ABOUT + proyectos
    ───────────────────────────────────────────── */
 
-/* Grid de proyectos: imágenes grandes */
+/* ABOUT: texto + foto */
+.about-layout {
+  display: grid;
+  gap: 2rem;
+}
+
+/* Columna foto */
+.about-col-photo {
+  max-width: 320px;
+  margin-inline: auto;
+}
+
+.about-photo-frame {
+  border: 1px solid var(--border);
+  background: var(--bg-alt);
+  padding: 0.4rem;
+}
+
+.about-photo-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* En tablet/desktop: dos columnas */
+@media (min-width: 768px) {
+  .about-layout {
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+    align-items: flex-start;
+  }
+
+  .about-col-photo {
+    margin-inline: 0;
+    justify-self: end;
+  }
+}
+
+/* ─────────────────────────────────────────────
+   Proyectos: grid estándar
+   ───────────────────────────────────────────── */
+
 .projects-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: 1.5rem;
+  gap: 1.75rem;
+  margin-top: 1.75rem;
 }
 
-/* Más columnas en pantallas grandes */
+/* Tablet: 2 columnas */
 @media (min-width: 768px) {
   .projects-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;
   }
 }
 
-@media (min-width: 1040px) {
+/* Desktop: 3 columnas */
+@media (min-width: 1024px) {
   .projects-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2.25rem;
   }
-}
-
-/* Footer */
-.site-footer {
-  border-top: 1px solid var(--border);
-  padding: 1rem;
-  background: var(--bg);
-}
-
-.footer-inner {
-  max-width: 980px;
-  margin-inline: auto;
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.85rem;
-}
-
-.footer-inner a {
-  color: var(--text);
-  text-decoration: none;
 }

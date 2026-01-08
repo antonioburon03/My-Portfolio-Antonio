@@ -1,5 +1,5 @@
 /* ─────────────────────────────────────────────
-   Navegación / Header
+   Navegación / Header (estándar responsive)
    ───────────────────────────────────────────── */
 
 .site-header {
@@ -11,30 +11,39 @@
   backdrop-filter: blur(8px);
 }
 
+/* Contenedor interno alineado con la página */
 .header-inner {
+  max-width: 1100px;
+  margin-inline: auto;
+  padding: 0.6rem 1.5rem;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.75rem 1rem;
-  max-width: 980px;
-  margin-inline: auto;
+  gap: 0.75rem;
 }
 
+/* Marca personal */
 .site-title {
   font-family: var(--font-heading);
-  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   text-decoration: none;
   color: var(--text);
+  font-size: clamp(0.9rem, 2.4vw, 1.1rem);
+  line-height: 1.1;
+  white-space: nowrap;
 }
 
-/* Botón menú hamburguesa (mobile) */
+/* Menú hamburguesa (mobile) */
 .menu-toggle {
   border: none;
   background: none;
   padding: 0.3rem;
   display: inline-flex;
   flex-direction: column;
-  gap: 0.2rem;
+  gap: 0.23rem;
   cursor: pointer;
 }
 
@@ -51,23 +60,29 @@
 
 .main-nav ul {
   list-style: none;
-  padding: 0.75rem 1rem 1rem;
+  padding: 0.6rem 1.5rem 0.9rem;
   margin: 0;
   border-top: 1px solid var(--border);
   background: var(--bg-alt);
 }
 
 .main-nav li + li {
-  margin-top: 0.25rem;
+  margin-top: 0.35rem;
 }
 
 .main-nav a {
-  text-decoration: none;
   color: var(--text);
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  letter-spacing: 0.08em;
+  font-size: var(--text-xs);
   text-transform: uppercase;
+  letter-spacing: 0.16em;
+  display: inline-block;
+  text-decoration: none;
+}
+
+/* Link activo */
+.main-nav a.is-active {
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
 }
 
 /* Nav abierta en mobile */
@@ -75,8 +90,13 @@
   display: block;
 }
 
-/* Desktop nav */
+/* ───────── Desktop ───────── */
+
 @media (min-width: 768px) {
+  .header-inner {
+    padding-block: 0.8rem;
+  }
+
   .menu-toggle {
     display: none;
   }
@@ -90,7 +110,8 @@
     background: transparent;
     padding: 0;
     display: flex;
-    gap: 1.4rem;
+    align-items: center;
+    gap: 1.5rem;
   }
 
   .main-nav li + li {
@@ -98,6 +119,12 @@
   }
 
   .main-nav a {
-    font-size: 0.78rem;
+    opacity: 0.85;
+  }
+
+  .main-nav a:hover {
+    opacity: 1;
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
   }
 }

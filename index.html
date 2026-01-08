@@ -1,24 +1,26 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Antonio Burón · Portfolio</title>
 
-  <!-- Fuentes -->
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600&family=Ubuntu+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <title>Antonio Burón · Ilustración y diseño gráfico</title>
+  <meta name="description" content="Portfolio de Antonio Burón, ilustrador y diseñador gráfico especializado en branding, diseño editorial, cartelería e infografía." />
+  <meta name="theme-color" content="#f4f3ef" />
 
-  <!-- CSS Barrel -->
+  <!-- Adobe Fonts -->
+  <link rel="stylesheet" href="https://use.typekit.net/TU-KIT.css" />
+
+  <!-- CSS barrel -->
   <link rel="stylesheet" href="./assets/css/index.css" />
 </head>
 <body>
-  <!-- Enlace de salto opcional -->
   <a href="#about" class="skip-link">Saltar al contenido</a>
 
   <!-- CABECERA / NAV -->
   <header class="site-header">
     <div class="header-inner">
-      <a href="#top" class="site-title">Antonio Burón</a>
+      <a href="#about" class="site-title">Antonio Burón</a>
 
       <button class="menu-toggle" aria-expanded="false" aria-label="Abrir menú">
         <span></span>
@@ -40,29 +42,43 @@
 
   <!-- CONTENIDO PRINCIPAL -->
   <main id="top" class="page">
+    <!-- ABOUT / HOME (sección inicial, con tu foto) -->
+    <section id="about" class="section section-about is-active">
+      <div class="section-inner about-layout">
+        <!-- Columna texto -->
+        <div class="about-col about-col-text">
+          <h1 class="about-name">Antonio Burón</h1>
+          <p class="about-role">Ilustración y diseño gráfico</p>
 
-    <!-- ABOUT -->
-    <section id="about" class="section section-about">
-      <div class="section-inner">
-        <h1 class="about-name">Antonio Burón</h1>
-        <p class="about-role">Ilustrador y diseñador gráfico</p>
+          <div class="about-text">
+            <p>
+              Trabajo en el cruce entre ilustración y diseño gráfico, desarrollando
+              proyectos de <strong>branding</strong>, <strong>diseño editorial</strong>,
+              <strong>cartelería</strong> e <strong>infografía</strong>.
+            </p>
+            <p>
+              Me interesa la claridad, el concepto y una estética cuidada, adaptando el lenguaje
+              visual a cada proyecto y cliente.
+            </p>
+          </div>
 
-        <div class="about-text">
-          <p>
-            Trabajo en el cruce entre ilustración y diseño gráfico, desarrollando
-            proyectos de <strong>branding</strong>, <strong>diseño editorial</strong>,
-            <strong>cartelería</strong> e <strong>infografía</strong>.
-          </p>
-          <p>
-            Me interesa la claridad, el concepto y una estética cuidada, sin
-            distracciones, adaptando el lenguaje visual a cada proyecto y cliente.
-          </p>
+          <div class="about-meta">
+            <p><span class="meta-label">Ubicación</span> España</p>
+            <p><span class="meta-label">Especialidades</span> Branding · Editorial · Cartelería · Infografía</p>
+            <p><span class="meta-label">Mail</span> <a href="mailto:tucorreo@ejemplo.com">tucorreo@ejemplo.com</a></p>
+          </div>
         </div>
 
-        <div class="about-meta">
-          <p><span class="meta-label">Ubicación</span> España</p>
-          <p><span class="meta-label">Especialidades</span> Branding · Editorial · Cartelería · Infografía</p>
-          <p><span class="meta-label">Mail</span> <a href="mailto:tucorreo@ejemplo.com">tucorreo@ejemplo.com</a></p>
+        <!-- Columna foto -->
+        <div class="about-col about-col-photo">
+          <!-- Sustituye el src por tu foto real -->
+          <div class="about-photo-frame">
+            <img
+              src="./assets/images/antonio-buron.jpg"
+              alt="Retrato de Antonio Burón"
+              loading="lazy"
+            />
+          </div>
         </div>
       </div>
     </section>
@@ -76,43 +92,99 @@
         </header>
 
         <div class="projects-grid">
+          <!-- PROYECTO 1 · Cafetería de especialidad -->
           <button
             class="project-card"
             type="button"
             data-title="Cafetería de especialidad"
             data-description="Identidad visual completa para una cafetería de especialidad. Logotipo, sistema tipográfico, paleta de color y aplicaciones en cartas, packaging y señalética."
           >
-            <img
-              src="https://picsum.photos/900/600?random=101"
-              alt="Identidad visual para una cafetería de especialidad"
-              loading="lazy"
-            />
+            <!-- Miniatura visible -->
+            <div class="project-thumb">
+              <img
+                src="https://picsum.photos/900/600?random=101"
+                alt="Vista previa del proyecto Cafetería de especialidad"
+                loading="lazy"
+              />
+            </div>
+
+            <!-- Imágenes del proyecto para el carrusel (ocultas en la página) -->
+            <div class="project-images">
+              <img
+                src="https://picsum.photos/900/600?random=111"
+                alt="Aplicación de la identidad de la cafetería en taza y carta"
+              />
+              <img
+                src="https://picsum.photos/900/600?random=112"
+                alt="Logotipo y sistema tipográfico de la cafetería de especialidad"
+              />
+              <img
+                src="https://picsum.photos/900/600?random=113"
+                alt="Packaging de café de la cafetería con la identidad aplicada"
+              />
+            </div>
           </button>
 
+          <!-- PROYECTO 2 · Marca de alimentación -->
           <button
             class="project-card"
             type="button"
             data-title="Marca de alimentación"
             data-description="Rebranding de una marca de alimentación. Limpieza del logotipo, jerarquía clara en el etiquetado y un sistema gráfico adaptable a toda la gama de productos."
           >
-            <img
-              src="https://picsum.photos/900/600?random=102"
-              alt="Rebranding de marca de alimentación"
-              loading="lazy"
-            />
+            <div class="project-thumb">
+              <img
+                src="https://picsum.photos/900/600?random=102"
+                alt="Vista previa del proyecto Marca de alimentación"
+                loading="lazy"
+              />
+            </div>
+
+            <div class="project-images">
+              <img
+                src="https://picsum.photos/900/600?random=121"
+                alt="Packaging principal de la marca de alimentación con la nueva identidad"
+              />
+              <img
+                src="https://picsum.photos/900/600?random=122"
+                alt="Detalle del logotipo y tipografía en la nueva marca de alimentación"
+              />
+              <img
+                src="https://picsum.photos/900/600?random=123"
+                alt="Variantes de envases aplicando el sistema gráfico de la marca de alimentación"
+              />
+            </div>
           </button>
 
+          <!-- PROYECTO 3 · Festival cultural -->
           <button
             class="project-card"
             type="button"
             data-title="Festival cultural"
             data-description="Identidad para un festival cultural. Sistema visual flexible para cartelería, redes sociales y merchandising."
           >
-            <img
-              src="https://picsum.photos/900/600?random=103"
-              alt="Identidad gráfica para festival cultural"
-              loading="lazy"
-            />
+            <div class="project-thumb">
+              <img
+                src="https://picsum.photos/900/600?random=103"
+                alt="Vista previa del proyecto Festival cultural"
+                loading="lazy"
+              />
+            </div>
+
+            <div class="project-images">
+              <img
+                src="https://picsum.photos/900/600?random=131"
+                alt="Cartel principal del festival cultural"
+              />
+              <img
+                src="https://picsum.photos/900/600?random=132"
+                alt="Aplicación de la identidad del festival en redes sociales"
+              />
+              <img
+                src="https://picsum.photos/900/600?random=133"
+                alt="Merchandising y aplicaciones impresas del festival cultural"
+              />
+            </div>
           </button>
         </div>
       </div>
@@ -127,43 +199,97 @@
         </header>
 
         <div class="projects-grid">
+          <!-- PROYECTO 1 · Colección de fauna -->
           <button
             class="project-card"
             type="button"
             data-title="Colección de fauna"
             data-description="Colección de libros sobre la fauna de España. Maquetación, sistema de iconos, mapas e ilustraciones para hacer la información clara y atractiva."
           >
-            <img
-              src="https://picsum.photos/900/600?random=201"
-              alt="Colección de libros de fauna"
-              loading="lazy"
-            />
+            <div class="project-thumb">
+              <img
+                src="https://picsum.photos/900/600?random=201"
+                alt="Vista previa de la colección de libros de fauna de España"
+                loading="lazy"
+              />
+            </div>
+
+            <div class="project-images">
+              <img
+                src="https://picsum.photos/900/600?random=211"
+                alt="Portadas de la colección de libros de fauna"
+              />
+              <img
+                src="https://picsum.photos/900/600?random=212"
+                alt="Doble página interior de la colección de fauna con ilustraciones"
+              />
+              <img
+                src="https://picsum.photos/900/600?random=213"
+                alt="Detalle de mapas, iconos y sistema gráfico en la colección de fauna"
+              />
+            </div>
           </button>
 
+          <!-- PROYECTO 2 · Revista cultural -->
           <button
             class="project-card"
             type="button"
             data-title="Revista cultural"
             data-description="Diseño de revista cultural con énfasis en tipografía, ritmo de página y relación entre texto e imagen."
           >
-            <img
-              src="https://picsum.photos/900/600?random=202"
-              alt="Diseño editorial para revista cultural"
-              loading="lazy"
-            />
+            <div class="project-thumb">
+              <img
+                src="https://picsum.photos/900/600?random=202"
+                alt="Vista previa de la revista cultural"
+                loading="lazy"
+              />
+            </div>
+
+            <div class="project-images">
+              <img
+                src="https://picsum.photos/900/600?random=221"
+                alt="Portada de la revista cultural"
+              />
+              <img
+                src="https://picsum.photos/900/600?random=222"
+                alt="Doble página de la revista cultural con fotografía y texto"
+              />
+              <img
+                src="https://picsum.photos/900/600?random=223"
+                alt="Detalle tipográfico y composición interior de la revista"
+              />
+            </div>
           </button>
 
+          <!-- PROYECTO 3 · Catálogo de producto -->
           <button
             class="project-card"
             type="button"
             data-title="Catálogo de producto"
             data-description="Catálogo modular para una marca, pensado para crecer con nuevas colecciones manteniendo la coherencia visual."
           >
-            <img
-              src="https://picsum.photos/900/600?random=203"
-              alt="Catálogo de producto"
-              loading="lazy"
-            />
+            <div class="project-thumb">
+              <img
+                src="https://picsum.photos/900/600?random=203"
+                alt="Vista previa del catálogo de producto"
+                loading="lazy"
+              />
+            </div>
+
+            <div class="project-images">
+              <img
+                src="https://picsum.photos/900/600?random=231"
+                alt="Portada del catálogo de producto"
+              />
+              <img
+                src="https://picsum.photos/900/600?random=232"
+                alt="Interior del catálogo con rejilla modular"
+              />
+              <img
+                src="https://picsum.photos/900/600?random=233"
+                alt="Detalle de ficha de producto y sistema de información en el catálogo"
+              />
+            </div>
           </button>
         </div>
       </div>
@@ -272,9 +398,9 @@
     </section>
 
     <!-- CONTACTO -->
-    <section id="contacto" class="section section-contact">
+    <section id="contacto" class="section">
       <div class="section-inner">
-        <h2>Contacto</h2>
+        <h2 class="section-header-title">Contacto</h2>
         <p>
           Para colaboraciones, encargos o clases, puedes escribirme a
           <a href="mailto:tucorreo@ejemplo.com">tucorreo@ejemplo.com</a>
@@ -287,28 +413,33 @@
         </ul>
       </div>
     </section>
-  </main>
 
-  <!-- MODAL DE PROYECTO (coincide con components.css) -->
-  <div class="project-modal" aria-hidden="true">
-    <div class="project-modal-backdrop" data-close-modal></div>
-    <div class="project-modal-dialog" role="dialog" aria-modal="true" aria-label="Detalle del proyecto">
-      <button class="project-modal-close" type="button" aria-label="Cerrar" data-close-modal>&times;</button>
-      <figure class="project-modal-figure">
-        <img src="" alt="" />
-        <figcaption class="project-modal-title"></figcaption>
-      </figure>
-      <p class="project-modal-description"></p>
-    </div>
-  </div>
+    <!-- MODAL DE PROYECTO (scroll vertical) -->
+    <div class="project-modal" aria-hidden="true">
+      <div class="project-modal-backdrop" data-close-modal></div>
 
-  <!-- FOOTER -->
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <span>© <span id="year"></span> Antonio Burón</span>
-      <a href="#top">Volver arriba</a>
+      <div class="project-modal-dialog" role="dialog" aria-modal="true" aria-label="Detalle del proyecto">
+        <button class="project-modal-close" type="button" aria-label="Cerrar" data-close-modal>&times;</button>
+
+        <div class="project-modal-body">
+          <!-- Aquí se inyectarán las imágenes del proyecto -->
+          <div class="project-modal-images"></div>
+
+          <!-- Meta: título + descripción, SIEMPRE debajo de la última imagen -->
+          <div class="project-modal-meta">
+            <h3 class="project-modal-title"></h3>
+            <p class="project-modal-description"></p>
+          </div>
+        </div>
+      </div>
     </div>
-  </footer>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <span>© <span id="year"></span> Antonio Burón</span>
+      </div>
+    </footer>
 
   <!-- JS -->
   <script src="./assets/js/main.js"></script>

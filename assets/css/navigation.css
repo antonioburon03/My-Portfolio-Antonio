@@ -24,17 +24,28 @@
 }
 
 /* Marca personal */
-.site-title {
-  font-family: var(--font-heading);
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: var(--text);
-  font-size: clamp(0.9rem, 2.4vw, 1.1rem);
-  line-height: 1.1;
-  white-space: nowrap;
+/* Logo en la cabecera (junto a los apartados) */
+.site-logo img {
+  display: block;
+  height: 72px; /* mobile */
+  width: auto;
 }
+
+/* Tablet */
+@media (min-width: 768px) {
+  .site-logo img {
+    height: 84px;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .site-logo img {
+    height: 96px;
+  }
+}
+
+
 
 /* Menú hamburguesa (mobile) */
 .menu-toggle {

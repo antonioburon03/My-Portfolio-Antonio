@@ -2,29 +2,21 @@
    Layout específico: ABOUT + proyectos
    ───────────────────────────────────────────── */
 
+
+
 /* ABOUT: texto + foto */
 .about-layout {
   display: grid;
-  gap: 2rem;
+  gap: clamp(1.5rem, 5vw, 2rem); /* Fluido */
 }
 
 /* Columna foto */
 .about-col-photo {
-  max-width: 320px;
+  max-width: clamp(280px, 80vw, 320px); /* Más pequeño en móviles pequeños, hasta 320px */
   margin-inline: auto;
 }
 
-.about-photo-frame {
-  border: 1px solid var(--border);
-  background: var(--bg-alt);
-  padding: 0.4rem;
-}
-
-.about-photo-frame img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
+/* ...existing code... */
 
 /* En tablet/desktop: dos columnas */
 @media (min-width: 768px) {
@@ -39,29 +31,33 @@
   }
 }
 
-/* ─────────────────────────────────────────────
-   Proyectos: grid estándar
-   ───────────────────────────────────────────── */
-
+/* Proyectos: grid estándar */
 .projects-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: 1.75rem;
+  gap: clamp(1.25rem, 4vw, 1.75rem); /* Fluido */
   margin-top: 1.75rem;
 }
 
-/* Tablet: 2 columnas */
-@media (min-width: 768px) {
+/* Tablet pequeña: 2 columnas */
+@media (min-width: 576px) {
   .projects-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 2rem;
+    gap: clamp(1.5rem, 4vw, 2rem);
   }
 }
 
 /* Desktop: 3 columnas */
-@media (min-width: 1024px) {
+@media (min-width: 992px) {
   .projects-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 2.25rem;
+    gap: clamp(2rem, 4vw, 2.25rem);
+  }
+}
+
+/* Pantallas grandes: mantener 3 columnas, pero gap mayor si espacio */
+@media (min-width: 1200px) {
+  .projects-grid {
+    gap: 2.5rem;
   }
 }

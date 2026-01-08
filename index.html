@@ -13,6 +13,13 @@
 
   <!-- CSS barrel -->
   <link rel="stylesheet" href="./assets/css/index.css" />
+  <!-- Favicon -->
+<link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon/favicon-96x96.png">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg">
+<link rel="icon" href="/assets/favicon/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+<link rel="manifest" href="/assets/favicon/site.webmanifest">
+
 </head>
 <body>
   <a href="#about" class="skip-link">Saltar al contenido</a>
@@ -20,7 +27,15 @@
   <!-- CABECERA / NAV -->
   <header class="site-header">
     <div class="header-inner">
-      <a href="#about" class="site-title">Antonio Burón</a>
+      <a href="#about" class="site-logo" aria-label="Ir a About">
+  <img
+    src="https://ik.imagekit.io/antonioburon/logo%20portfolio.png"
+    alt="Antonio Burón"
+    loading="eager"
+    decoding="async"
+  />
+</a>
+
 
       <button class="menu-toggle" aria-expanded="false" aria-label="Abrir menú">
         <span></span>
@@ -38,6 +53,7 @@
         </ul>
       </nav>
     </div>
+	
   </header>
 
   <!-- CONTENIDO PRINCIPAL -->
@@ -69,12 +85,11 @@
           </div>
         </div>
 
-        <!-- Columna foto -->
-        <div class="about-col about-col-photo">
+        
           <!-- Sustituye el src por tu foto real -->
           <div class="about-photo-frame">
             <img
-              src="./assets/images/antonio-buron.jpg"
+              src="https://ik.imagekit.io/antonioburon/retrato%20perfil.svg"
               alt="Retrato de Antonio Burón"
               loading="lazy"
             />

@@ -63,12 +63,28 @@
 .project-modal-dialog {
   position: relative;
   z-index: 1;
-  width: min(960px, 92vw);
+  width: min(960px, 95vw); /* Un poco más ancho en móvil */
   max-height: 90vh;
   background: var(--bg-alt);
   border: 1px solid var(--border);
-  padding: 1.1rem 1.1rem 1.2rem;
-  overflow: auto;   /* Importante: hace que el contenido interno tenga scroll */
+  padding: clamp(0.8rem, 3vw, 1.1rem) clamp(0.8rem, 3vw, 1.1rem) clamp(1rem, 3vw, 1.2rem);
+  overflow: auto;
+}
+
+/* ...existing code... */
+
+/* Cuerpo del modal: columna vertical */
+.project-modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.5rem, 2vw, 0.75rem); /* Fluido */
+}
+
+/* Contenedor de todas las imágenes del proyecto */
+.project-modal-images {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.5rem, 2vw, 0.75rem);
 }
 
 /* Botón de cerrar */
@@ -87,14 +103,14 @@
 .project-modal-body {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: clamp(0.5rem, 2vw, 0.75rem); /* Fluido */
 }
 
 /* Contenedor de todas las imágenes del proyecto */
 .project-modal-images {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: clamp(0.5rem, 2vw, 0.75rem);
 }
 
 /* Cada imagen dentro del modal */

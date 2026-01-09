@@ -2,27 +2,33 @@
 # This file will be used to generate your entry in the course showroom
 
 # Basic information
-handle: your-github-username
-name: Your Full Name
-email: your-email@udit.es
+handle: antonio-buron-03
+name: Antonio Burón
+email: antonioburon@icloud.com
 
 # URLs (will be auto-generated if you follow naming conventions)
-github_url: https://github.com/your-username
-project_url: https://your-username.github.io/your-project-repo
-repository_url: https://github.com/your-username/your-project-repo
+github_url: https://github.com/antonioburon03
+project_url: https://github.com/antonioburon03/My-Portfolio-Antonio
+repository_url: https://github.com/antonioburon03/My-Portfolio-Antonio/releases/tag/v1.0.0
 
 # Project details
 title:
-  es: Título de tu Proyecto en Español
-  en: Your Project Title in English
+  es: Mi portfolio Antonio
+  en: My portfolio Antonio
 
 abstract:
   es: |
-    Una descripción concisa de tu proyecto web en español. 
-    Explica qué construyes, para quién y por qué es importante.
+    He construido un portfolio web responsive (mobile first) para mostrar mi trabajo como diseñador gráfico e ilustrador.
+    Está dirigido a estudios, agencias y clientes que buscan conocer mis proyectos de branding, diseño editorial,
+    cartelería e infografía de forma clara y estructurada. El proyecto es importante porque reúne mi trabajo en un
+    único espacio digital, mejora mi visibilidad profesional y facilita que quien lo visita entienda rápidamente
+    qué hago, cómo trabajo y qué valor puedo aportar.
   en: |
-    A concise description of your web project in English.
-    Explain what you're building, for whom, and why it matters.
+    I built a responsive (mobile-first) web portfolio to showcase my work as a graphic designer and illustrator.
+    It is aimed at studios, agencies, and potential clients who want to explore my projects in branding, editorial
+    design, poster design, and infographics in a clear and structured way. This project matters because it brings
+    my work together in one digital space, improves my professional visibility, and helps visitors quickly
+    understand what I do, how I work, and the value I can offer.
 
 # Technical tags (choose relevant ones)
 tags:
@@ -30,21 +36,6 @@ tags:
   - css3
   - responsive-design
   - accessibility
-  # Add more as relevant: javascript, sass, performance, etc.
-
-# Learning objectives you're focusing on
-learning_focus:
-  - semantic-html
-  - mobile-first-design
-  - web-accessibility
-  # Add more as you progress
-
-# Week tracking (update as you go)
-milestones:
-  week_1_setup: false
-  week_2_brief: false
-  week_4_metadata: false
-  week_5_showcase: false
-
-# Optional: link to your project brief
-brief_url: project-brief.md
+  - javascript
+  - performance
+  - mobile-first

@@ -1,9 +1,9 @@
 # Project Brief
 
-**Student:** [Your Name]  
-**Handle:** @[your-github-username]  
-**Course:** Web Design 2025 · Fall  
-**Date:** [Fill in date - Week 2]
+**Student:** Antonio Burón  
+**Handle:** @antonioburon  
+**Course:** Diseño Audiovisual e Ilustración (UDIT)  
+**Date:** 2026-01-09
 
 ---
 
@@ -11,15 +11,15 @@
 
 ### What are you building?
 
-<!-- Describe your project in 2-3 sentences -->
+Un portfolio web personal para mostrar trabajos de ilustración y diseño gráfico (branding, editorial, cartelería e infografía) mediante una presentación visual, clara y coherente.
 
 ### Who is it for?
 
-<!-- Define your target audience -->
+Potenciales clientes, estudios/agencias, profesores y convocatorias creativas que busquen ver una selección representativa de proyectos y estilos.
 
 ### Why does it matter?
 
-<!-- Explain the purpose and value of your project -->
+Permite presentar el trabajo profesionalmente, facilitar contactos y oportunidades, y servir como base técnica y visual que pueda escalar y adaptarse con el tiempo.
 
 ---
 
@@ -27,86 +27,83 @@
 
 ### Core Technologies
 
-- [ ] HTML5 (semantic markup)
-- [ ] CSS3 (responsive design)
-- [ ] JavaScript (if applicable)
-- [ ] Other: \***\*\_\_\_\*\***
+- [x] HTML5 (marcado semántico en [index.html](index.html))
+- [x] CSS3 (ficheros modulares en [assets/css](assets/css))
+- [x] JavaScript (vanilla — [assets/js/main.js](assets/js/main.js) para navegación por hash y modal)
+- [ ] Otras (posible tooling futuro: build, optimización de assets)
 
-### Accessibility Goals
+### Implementación y código (detalles)
 
-- [ ] Semantic HTML structure
-- [ ] Proper heading hierarchy
-- [ ] Alt text for images
-- [ ] Keyboard navigation support
-- [ ] Color contrast compliance
-- [ ] Screen reader compatibility
+- Estructura CSS: [assets/css/index.css](assets/css/index.css) actúa como "barrel" que importa módulos: `reset.css`, `theme.css`, `base.css`, `navigation.css`, `layout.css`, `footer.css`, `components.css`. Esto organiza estilos por responsabilidad.
+- Carga de fuentes: kit de Adobe Fonts enlazado desde [index.html](index.html).
+- Imágenes: miniaturas y recursos se sirven desde ImageKit (URLs externas) y muchas imágenes usan `loading="lazy"` para mejorar rendimiento.
 
-### Responsive Design Strategy
+### Principales funciones en `assets/js/main.js`
 
-- [ ] Mobile-first approach
-- [ ] Flexible grid system
-- [ ] Scalable typography
-- [ ] Optimized images
-- [ ] Touch-friendly interactions
+- `initYear()` — Rellena dinámicamente el año en el footer (`#year`).
+- `initMenu()` — Controla el botón hamburguesa, alterna la clase `is-open` en la navegación y actualiza `aria-expanded`. También cierra el menú al seleccionar un enlace (útil en móvil).
+- `initSmoothScroll()` — Scroll suave a secciones (opcional/no usado para el router principal).
+- `initActiveNav()` — Observador de intersección para marcar enlaces activos según la sección visible (actualmente sustituido por el router de hash).
+- `initSectionRouter()` — Router simple basado en `window.location.hash`. Muestra solo la sección con el `id` correspondiente, actualiza estado activo del menú y maneja fallback a `about` si el hash no existe.
+- `initProjectsModal()` — Modal de proyectos: al clicar una tarjeta (`.project-card`) recopila imágenes desde `.project-images` (si existe) o desde cualquier `img` dentro de la tarjeta, clona las imágenes al modal, rellena título y descripción desde `data-title`/`data-description`, y gestiona apertura/cierre (backdrop, ESC, botones y bloqueo de scroll del body).
 
----
+### Cómo funciona la navegación y los proyectos
 
-## Content Strategy
+- Navegación por secciones: los enlaces usan `#about`, `#branding`, etc.; el hash activa `initSectionRouter()` que aplica/remueve la clase `is-active` a las secciones.
+- Modal de proyectos: las tarjetas contienen miniaturas visibles y un bloque oculto `.project-images` con el resto de imágenes para el proyecto; el JS clona estos nodos dentro del modal para permitir un scroll vertical con todas las imágenes.
 
-### Key Sections/Pages
+### Accesibilidad y ARIA
 
-1.
-2.
-3.
-
-### Content Sources
-
-<!-- Where will your content come from? -->
-
-### Multilingual Considerations
-
-- Primary language:
-- Secondary language (optional):
-- Translation strategy:
+- Uso de `aria-expanded` y `aria-label` en controles de navegación.
+- Estructura semántica con `header`, `main`, `section` y encabezados (`h1`, `h2`).
+- Textos alternativos presentes en imágenes (aunque conviene revisar que todas las imágenes clave tengan `alt` descriptivo).
+- Recomendaciones pendientes: validar foco dentro del modal (trap focus), mejorar órdenes de tabulación y auditar contraste de colores.
 
 ---
 
-## Design Direction
+## Responsive Design Strategy
 
-### Visual Style
+- [x] Diseño adaptativo por secciones (secciones que se muestran según hash)
+- [ ] Enfoque mobile-first (mejorar reglas CSS si hace falta)
+- [x] Imágenes optimizadas vía cargas diferidas (`loading="lazy"`) en muchas miniaturas
+- [ ] Revisión de tipografías y escalado para accesibilidad
 
-<!-- Describe your aesthetic approach -->
+---
 
-### Color Palette
+## Detalles de estructura de ficheros relevantes
 
-<!-- List your main colors -->
+- [index.html](index.html) — entrada principal, metadatos (`description`, `theme-color`), enlaces a `assets/css/index.css` y al kit de Adobe Fonts, y markup de todas las secciones.
+- [assets/css](assets/css) — ficheros CSS modulares; `index.css` importa los módulos y centraliza la carga de estilos.
+- [assets/js/main.js](assets/js/main.js) — lógica de UI: router por hash, menú, modal, utilidades.
+- [assets/favicon](assets/favicon) — íconos y `site.webmanifest`.
+- [docs/](docs) — documentación y briefs (este fichero incluido).
 
-### Typography
+---
 
-<!-- What fonts/typeface approach will you use? -->
+## Recomendaciones técnicas y próximos pasos
 
-### Inspiration/References
-
-<!-- List 2-3 websites or designs that inspire your approach -->
+- Añadir un `focus trap` al modal para accesibilidad y asegurar que el foco vuelve al elemento disparador al cerrar.
+- Auditar y mejorar contraste de color y orden del DOM para lectores de pantalla.
+- Considerar un pequeño pipeline (por ejemplo, `npm` + `vite`) si se integran optimizaciones de assets o un workflow de build.
+- Automatizar datos de proyectos (JSON o MD) para evitar duplicar markup HTML y facilitar mantenimiento.
 
 ---
 
 ## Success Metrics
 
-### Week 4 Goals
+### Short-term (próximas semanas)
 
-- [ ] Functional homepage
-- [ ] Basic responsive layout
-- [ ] Core content in place
-- [ ] Accessible markup
+- [x] Homepage funcional con navegación por secciones
+- [x] Modal de visualización de proyectos funcionando
+- [ ] Layout básico responsivo probado en móvil y escritorio
+- [ ] Contenido principal en su lugar (about, secciones y contacto)
 
 ### Final Project Goals
 
-- [ ] Fully responsive across devices
-- [ ] Meets WCAG 2.1 AA standards
-- [ ] Fast loading performance
-- [ ] Complete content
-- [ ] Polished visual design
+- [ ] Comportamiento totalmente responsivo y pulido
+- [ ] Mejoras de accesibilidad (auditoría y correcciones)
+- [ ] Performance optimizada (imágenes y carga)
+- [ ] Flujo de actualización de proyectos menos manual (CMS o JSON)
 
 ---
 
@@ -114,10 +111,16 @@
 
 ### What excites you most about this project?
 
+Mostrar trabajos propios de forma atractiva y profesional, y ver cómo la interfaz potencia la narrativa visual.
+
 ### What challenges do you anticipate?
+
+Optimizar imágenes y rendimiento manteniendo calidad visual; asegurar accesibilidad y mantener el proyecto escalable sin introducir demasiada complejidad técnica.
 
 ### How does this project connect to your learning goals?
 
+Permite practicar HTML/CSS/JS real aplicados a un producto personal, mejorar buenas prácticas de accesibilidad y aprender optimización para web.
+
 ---
 
-_This brief will evolve as your project develops. Update it as needed and reference it in your weekly commits._
+_Este brief puede actualizarse según avances. Referencia: [index.html](index.html), [assets/js/main.js](assets/js/main.js) y los ficheros en [assets/css](assets/css)._ 

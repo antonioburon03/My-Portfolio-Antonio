@@ -1,0 +1,87 @@
+/* ─────────────────────────────────────────────
+   FOOTER
+   ───────────────────────────────────────────── */
+
+/* Empuja el footer siempre abajo gracias al flex column del body */
+.site-footer {
+  margin-top: auto; /* Sticky footer */
+  padding: 2.5rem 0; /* Altura mínima consistente */
+  border-top: 1px solid var(--border);
+  background-color: var(--bg); /* Asegura fondo sólido */
+}
+
+.footer-inner {
+  
+  width: min(90%, 1400px);
+  margin-inline: auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+
+  font-size: var(--text-sm);
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* En PC: Una línea (izq: copy, der: nav) */
+@media (min-width: 640px) {
+  .footer-inner {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+/* Estilos de enlaces */
+.footer-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.footer-link {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: var(--text-xs);
+  transition: color 0.2s;
+}
+
+.footer-link:hover {
+  color: var(--text);
+}
+
+/* Iconos sociales */
+.footer-social {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.footer-social a {
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+  transition: all 0.2s;
+}
+
+.footer-social a:hover {
+  color: var(--text);
+  transform: translateY(-2px);
+}
+
+.footer-social svg {
+  width: 1.2em;
+  height: 1.2em;
+}
+
+/* Behance icon fix (el path que copié es complejo, ajusto stroke si hace falta) */
+.footer-social a[aria-label="Behance"] svg path {
+  fill: currentColor; /* El SVG de behance suele ser fill, no stroke */
+  stroke: none;
+}
+.footer-social a[aria-label="Behance"] svg path:first-child {
+  fill: none; /* el primer path transparente */
+}

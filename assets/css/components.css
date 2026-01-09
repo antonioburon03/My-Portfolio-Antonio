@@ -21,10 +21,10 @@
   border: 1px solid var(--border);
   background: var(--bg-alt);
 
-  /* Esto crea miniaturas uniformes SIN recortar la imagen */
-  height: clamp(180px, 28vw, 320px);
-  display: grid;
-  place-items: center;
+  /* MODIFICADO: Altura automática para evitar huecos blancos (Opción B) */
+  height: auto;
+  display: block; /* Antes grid para centrar */
+  
   overflow: hidden;
 
   transition:
@@ -35,13 +35,12 @@
 
 .project-thumb img {
   width: 100%;
-  height: 100%;
+  height: auto; /* Se adapta al contenido */
   display: block;
 
-  /* Clave: mostrar completa */
-  object-fit: contain;
+  /* MODIFICADO: Eliminamos object-fit para que no dependa de un contenedor fijo */
+  /* object-fit: contain; */
 
-  /* Evita huecos raros */
   background: var(--bg-alt);
 }
 
@@ -156,6 +155,10 @@
   /* aquí sí hay scroll cuando toca */
   overflow: auto;
 
+  /* Ocultar barra de scroll (Chrome, Safari, Edge) */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge legacy */
+  
   /* imágenes apiladas */
   display: flex;
   flex-direction: column;
@@ -163,6 +166,11 @@
 
   /* sin padding para que vayan a sangre */
   padding: 0;
+}
+
+/* Ocultar barra de scroll (Webkit: Chrome, Safari) */
+.project-modal-images::-webkit-scrollbar {
+  display: none;
 }
 
 /* Imágenes: completas y sin recorte */
@@ -203,21 +211,42 @@
 }
 
 /* ─────────────────────────────────────────────
-   CASO 1 IMAGEN: sin scroll, imagen centrada completa
-   (pero el texto sigue abajo y se adapta)
+   CASO 1 IMAGEN: modal se ajusta al contenido (shrink-wrap)
+   El texto se comprimirá al ancho de la imagen.
    ───────────────────────────────────────────── */
 
+/* Ajustamos el contenedor del modal cuando tiene 1 sola imagen */
+.project-modal-dialog:has(.project-modal-images img:only-child) {
+  /* width: auto hace que el div se encoja al contenido, 
+     pero necesitamos max-content o fit-content para imágenes */
+  width: fit-content;  
+  max-width: 95vw;
+}
+
+/* Ajustes internos para la imagen única */
 .project-modal-dialog:has(.project-modal-images img:only-child) .project-modal-images {
   overflow: hidden;         /* no scroll */
-  display: grid;
-  place-items: center;
+  display: block;           /* bloque normal */
   padding: 0;
+  width: auto;              /* dejamos que la imagen defina el ancho */
+}
+
+/* FIX: El texto debe ajustarse al ancho que decida la imagen, no empujar el ancho */
+.project-modal-dialog:has(.project-modal-images img:only-child) .project-modal-meta {
+  width: 0;           /* Truco: resetea el ancho natural para que no empuje */
+  min-width: 100%;    /* Luego le forzamos a ocupar el 100% del padre (definido por la img) */
+  box-sizing: border-box; /* Asegurar que el padding no sume ancho extra */
 }
 
 .project-modal-dialog:has(.project-modal-images img:only-child) .project-modal-images img {
-  width: auto;
-  max-width: 100%;
-  max-height: calc(90vh - 4.5rem); /* resta espacio del pie */
+  width: auto;             /* ancho natural */
+  max-width: 100%;         /* pero no desborde pantalla */
+  
+  /* Altura máxima para que quepa en pantalla restando espacio aprox del header/footer */
+  max-height: calc(90vh - 8rem);
+  
+  display: block;   
+  object-fit: contain;
 }
 
 /* Bloquear scroll del fondo cuando el modal está abierto */

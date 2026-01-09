@@ -55,9 +55,30 @@
   }
 }
 
-/* Pantallas grandes: mantener 3 columnas, pero gap mayor si espacio */
-@media (min-width: 1200px) {
-  .projects-grid {
-    gap: 2.5rem;
+/* Brandidng y Editorial: lógica especial de cantidad de items */
+/* Solo afecta a las secciones indicadas que usan .project-thumb dentro de cards */
+/* Usamos :has() para detectar cuántos hijos directos (.project-card) tiene el grid */
+/* APLICADO SOLO DESDE TABLET/DESKTOP PARA NO ROMPER MÓVIL */
+
+@media (min-width: 768px) {
+  /* Caso: Exactamente 1 elemento */
+  #branding .projects-grid:has(> .project-card:nth-child(1):last-child),
+  #editorial .projects-grid:has(> .project-card:nth-child(1):last-child) {
+    grid-template-columns: 1fr 1fr; /* Mitad y mitad */
+  }
+
+  /* Forzamos que el único elemento no se estire si el grid lo justifica */
+  #branding .projects-grid:has(> .project-card:nth-child(1):last-child) > .project-card,
+  #editorial .projects-grid:has(> .project-card:nth-child(1):last-child) > .project-card {
+    grid-column: 1 / 2; /* Ocupa la primera columna (izquierda) */
+  }
+
+  /* Caso: Exactamente 2 elementos */
+  #branding .projects-grid:has(> .project-card:nth-child(2):last-child),
+  #editorial .projects-grid:has(> .project-card:nth-child(2):last-child) {
+    grid-template-columns: 1fr 1fr; /* Mitad y mitad */
   }
 }
+
+/* Caso: 3 o más elementos -> se aplica el estilo normal de media queries de arriba */
+

@@ -14,6 +14,11 @@ body {
   font-size: var(--text-base);
   font-weight: 400;
   line-height: 1.6;
+  
+  /* Sticky Footer: Flex vertical */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 /* Contenedor principal de la página */
@@ -21,6 +26,11 @@ body {
   max-width: 1200px; /* Aumentado para pantallas grandes */
   margin-inline: auto;
   padding-inline: clamp(1rem, 4vw, 2rem); /* Fluido: 1rem en móvil, hasta 2rem en desktop */
+  
+  /* FIX: El main crece para ocupar el hueco vacío y empujar el footer abajo */
+  width: 100%;       /* Para asegurar que no se colapse en ancho */
+  box-sizing: border-box; /* Para que el padding no desborde 100% de ancho */
+  flex-grow: 1;      /* C ocupa el espacio sobrante vertical */
 }
 
 /* Secciones (el router JS controla is-active) */

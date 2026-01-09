@@ -40,6 +40,7 @@
       <button class="menu-toggle" aria-expanded="false" aria-label="Abrir menú">
         <span></span>
         <span></span>
+        <span></span>
       </button>
 
       <nav class="main-nav" aria-label="Secciones del portfolio">
@@ -419,17 +420,38 @@
     <!-- CONTACTO -->
     <section id="contacto" class="section">
       <div class="section-inner">
-        <h2 class="section-header-title">Contacto</h2>
-        <p>
-          Para colaboraciones, encargos o clases, puedes escribirme a
-          <a href="mailto:tucorreo@ejemplo.com">tucorreo@ejemplo.com</a>
-        </p>
+        <header class="section-header">
+          <h2>Contacto</h2>
+          <p>Para colaboraciones, encargos o clases, puedes escribirme a</p>
+        </header>
+        
+        <div class="contact-layout">
+          <!-- Columna 1: MAIL -->
+          <div class="contact-col">
+            <h3 class="contact-label-title">MAIL</h3>
+            <a href="mailto:antonioburonfrias@gmail.com" class="contact-link">antonioburonfrias@gmail.com</a>
+          </div>
 
-        <ul class="contact-list">
-          <li><span class="meta-label">Instagram</span> <a href="#" target="_blank" rel="noopener noreferrer">@tuusuario</a></li>
-          <li><span class="meta-label">Behance</span> <a href="#" target="_blank" rel="noopener noreferrer">behance.net/tuusuario</a></li>
-          <li><span class="meta-label">LinkedIn</span> <a href="#" target="_blank" rel="noopener noreferrer">linkedin.com/in/tuusuario</a></li>
-        </ul>
+          <!-- Columna 2: REDES SOCIALES -->
+          <div class="contact-col">
+            <h3 class="contact-label-title">REDES SOCIALES</h3>
+            <nav class="contact-social-list">
+              <a href="https://instagram.com/tuusuario" target="_blank" rel="noopener noreferrer" class="contact-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="contact-icon" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                <span>Instagram</span>
+              </a>
+              <a href="https://behance.net/tuusuario" target="_blank" rel="noopener noreferrer" class="contact-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="contact-icon" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" opacity="0"></path><path d="M20.9 9.1c.3.9.4 1.9.4 2.9 0 4.6-3.8 8.4-8.4 8.4a8.4 8.4 0 0 1-8-8c-.1-1.1.1-2.2.4-3.1.5-1.5 1.5-2.8 2.8-3.7C9.3 4.7 10.6 4 12 4c4.6 0 8.4 3.8 8.4 8.4 0 .2 0 .4 0 .7h-4.6c0 1.2.9 2.1 2.1 2.1 1.6 0 2-1 2-2.3H23c-.1 2.3-1.6 4.3-3.8 4.3-2.6 0-4.4-1.9-4.4-4.4 0-2.5 1.8-4.4 4.1-4.4 2.2 0 3.8 1.8 3.8 4.1 0 .2 0 .4 0 .6h-6c.1-1.1 1-1.9 2.2-1.9 1.1 0 1.8.7 2 1.9z"></path><path d="M15 3h6v2h-6z"></path></svg>
+                <span>Behance</span>
+              </a>
+              <a href="https://linkedin.com/in/tuusuario" target="_blank" rel="noopener noreferrer" class="contact-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="contact-icon" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                <span>LinkedIn</span>
+              </a>
+            </nav>
+          </div>
+        </div>
+
       </div>
     </section>
 

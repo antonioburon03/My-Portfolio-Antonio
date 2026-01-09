@@ -2,28 +2,87 @@
    FOOTER
    ───────────────────────────────────────────── */
 
-/* Empuja el footer siempre abajo gracias al flex column del body */
+/* Mejora 4: Footer Fijo */
 .site-footer {
-  margin-top: auto; /* Sticky footer */
-  padding: 2.5rem 0; /* Altura mínima consistente */
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  
+  padding: 1.5rem 0;
   border-top: 1px solid var(--border);
-  background-color: var(--bg); /* Asegura fondo sólido */
+  
+  /* Color de fondo original crema sólido */
+  background-color: #f4f3ef; 
+
+  /* Nueva config fondo animado */
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAIAAACRXR/mAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAABnSURBVHja7M5RDYAwDEXRDgmvEocnlrQS2SwUFST9uEfBGWs9c97nbGtDcquqiKhOImLs/UpuzVzWEi1atGjRokWLFi1atGjRokWLFi1atGjRokWLFi1af7Ukz8xWp8z8AAAA//8DAJ4LoEAAlL1nAAAAAElFTkSuQmCC");
+  background-repeat: repeat;
+  background-size: 50px 50px;
+  animation: bg-scrolling-reverse 2s linear infinite;
 }
 
 .footer-inner {
   
-  width: min(90%, 1400px);
+  /* Alineación: 1200px para header/footer, contenido a 900px */
+  width: 100%;
+  max-width: 1200px;
+  padding-inline: clamp(1rem, 4vw, 2rem);
+  box-sizing: border-box;
   margin-inline: auto;
 
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: space-between;
   gap: 1.25rem;
-
+  
   font-size: var(--text-sm);
   color: var(--muted);
   text-transform: uppercase;
   letter-spacing: 0.1em;
+}/* Redes en el footer */
+.footer-social {
+  display: flex;
+  gap: 1rem;
+}
+
+.footer-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+  transition: color 0.2s;
+}
+
+.footer-social a:hover {
+  color: var(--text);
+}
+
+.footer-link {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-link:hover {
+  color: var(--text);
+}
+
+
+/* Mobile: Footer apilado */
+@media (max-width: 640px) {
+    .site-footer {
+        padding: 1rem 0;
+    }
+    
+    .footer-inner {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .footer-nav {
+        display: none; /* Opcional: si queremos simplificar más en móvil */
+    }
 }
 
 /* En PC: Una línea (izq: copy, der: nav) */

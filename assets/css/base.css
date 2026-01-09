@@ -15,17 +15,18 @@ body {
   font-weight: 400;
   line-height: 1.6;
   
-  /* Sticky Footer: Flex vertical */
-  display: flex;
-  flex-direction: column;
+  /* Sticky Footer layout removal - We are moving to Fixed Footer */
+  display: block; 
   min-height: 100vh;
+  /* Mejora 4: Espacio para que el footer fijo no tape contenido */
+  padding-bottom: 120px; 
 }
 
 /* Contenedor principal de la página */
 .page {
-  max-width: 1200px; /* Aumentado para pantallas grandes */
+  max-width: 1200px; /* Restaurado a 1200 (el contenido interno se limita a 900 en section-inner) */
   margin-inline: auto;
-  padding-inline: clamp(1rem, 4vw, 2rem); /* Fluido: 1rem en móvil, hasta 2rem en desktop */
+  padding-inline: clamp(1rem, 4vw, 2rem);
   
   /* FIX: El main crece para ocupar el hueco vacío y empujar el footer abajo */
   width: 100%;       /* Para asegurar que no se colapse en ancho */
@@ -36,7 +37,7 @@ body {
 /* Secciones (el router JS controla is-active) */
 .section {
   padding-block: 3rem;
-  border-bottom: 1px solid var(--border);
+  /* border-bottom: 1px solid var(--border); ELIMINADO */
   background: var(--bg);
   display: none; /* por defecto ocultas */
 }
@@ -201,4 +202,9 @@ i {
 .footer-inner a:hover {
   text-decoration: underline;
   text-underline-offset: 0.18em;
+}
+
+/* Animation Keyframes: Infinite Scrolling (User Request) */
+@keyframes bg-scrolling-reverse {
+  100% { background-position: 50px 50px; }
 }

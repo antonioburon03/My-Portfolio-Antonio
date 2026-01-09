@@ -3,19 +3,36 @@
    ───────────────────────────────────────────── */
 
 .site-header {
-  position: sticky;
+  position: sticky; /* Sticky original */
   top: 0;
   z-index: 20;
   border-bottom: 1px solid var(--border);
-  background: #f4f3eff5;
+  
+  /* Color de fondo original para mantener el tono crema/transparente */
+  background-color: rgba(244, 243, 239, 0.96); 
+  
+  /* Animación solicitada: Subtle Pattern + Scroll */
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAIAAACRXR/mAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAABnSURBVHja7M5RDYAwDEXRDgmvEocnlrQS2SwUFST9uEfBGWs9c97nbGtDcquqiKhOImLs/UpuzVzWEi1atGjRokWLFi1atGjRokWLFi1atGjRokWLFi1af7Ukz8xWp8z8AAAA//8DAJ4LoEAAlL1nAAAAAElFTkSuQmCC");
+  background-repeat: repeat;
+  background-size: 50px 50px;
+  
+  /* Ajuste de opacidad visual usando fusión con el fondo claro */
+  /* La imagen es negra transparente, al mezclarla con el fondo se atenúa */
+  
+  animation: bg-scrolling-reverse 2s linear infinite; /* 2s para suavizar (0.92s puede ser muy rápido, pero ajustable) */
+  
   backdrop-filter: blur(8px);
 }
 
 /* Contenedor interno alineado con la página */
 .header-inner {
-  max-width: 1100px;
+  /* Alineación: 1200px para header/footer, contenido a 900px */
+  width: 100%;
+  max-width: 1200px;
   margin-inline: auto;
-  padding: 0.6rem 1.5rem;
+  padding-inline: clamp(1rem, 4vw, 2rem);
+  padding-block: 0.6rem;
+  box-sizing: border-box;
 
   display: flex;
   align-items: center;
@@ -56,6 +73,10 @@
   flex-direction: column;
   gap: 0.23rem;
   cursor: pointer;
+  
+  /* FIXED: Asegurar que el botón esté SOBRE el drawer */
+  position: relative;
+  z-index: 1001; 
 }
 
 .menu-toggle span {
@@ -66,71 +87,125 @@
 
 /* Navegación principal */
 .main-nav {
+  /* Mejora 5: Drawer lateral en móvil */
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 70%;
+  max-width: 300px;
+  height: 100vh;
+  background: var(--bg);
+  border-left: 1px solid var(--border);
+  z-index: 1000;
+  padding-top: 5rem;
+  
+  /* Sistema de visibilidad absoluto para no reservar espacio */
   display: none;
-}
-
-.main-nav ul {
-  list-style: none;
-  padding: 0.6rem 1.5rem 0.9rem;
-  margin: 0;
-  border-top: 1px solid var(--border);
-  background: var(--bg-alt);
-}
-
-.main-nav li + li {
-  margin-top: 0.35rem;
-}
-
-.main-nav a {
-  color: var(--text);
-  font-size: var(--text-xs);
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-  display: inline-block;
-  text-decoration: none;
-}
-
-/* Link activo */
-.main-nav a.is-active {
-  text-decoration: underline;
-  text-underline-offset: 0.18em;
 }
 
 /* Nav abierta en mobile */
 .main-nav.is-open {
   display: block;
+  animation: slideIn 0.3s ease forwards;
 }
 
-/* ───────── Desktop ───────── */
+@keyframes slideIn {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
 
+.main-nav ul {
+  list-style: none;
+  padding: 0 2rem;
+  margin: 0;
+  border-top: none; 
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.main-nav li + li {
+  margin-top: 0;
+}
+
+.main-nav a {
+  color: var(--text);
+  font-size: 1.1rem; /* Más grande en móvil */
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  display: block;
+  text-decoration: none;
+}
+
+/* Animación Hamburguesa a X */
+.menu-toggle[aria-expanded="true"] span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.menu-toggle[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle[aria-expanded="true"] span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+.menu-toggle span {
+  transition: transform 0.3s, opacity 0.3s;
+  transform-origin: center;
+}
+
+
+/* Desktop Styles */
 @media (min-width: 768px) {
   .header-inner {
     padding-block: 0.8rem;
+    justify-content: flex-start; /* Alineamos elementos al inicio para poder usar márgenes auto */
   }
 
   .menu-toggle {
     display: none;
   }
 
+  /* Reset del drawer: vuelve a ser horizontal y estático */
   .main-nav {
-    display: block;
+    position: static;
+    width: auto;
+    height: auto;
+    background: transparent;
+    border: none;
+    padding: 0;
+    transform: none;
+    display: block; /* Siempre visible en Desktop */
+    box-shadow: none;
+    animation: none; /* Quitamos animación móvil */
+    
+    /* Ajuste de posición: Centrado en el espacio disponible */
+    /* Quitamos el cálculo anterior y usamos márgenes automáticos para centrarlo */
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .main-nav ul {
+    flex-direction: row;
+    padding: 0;
+    gap: 1.5rem; /* Aumentado de 1.25rem a 1.5rem */
     border-top: none;
     background: transparent;
-    padding: 0;
     display: flex;
     align-items: center;
-    gap: 1.5rem;
   }
-
+  
   .main-nav li + li {
     margin-top: 0;
   }
 
   .main-nav a {
+    color: var(--text);
+    font-size: 0.85rem; /* Aumentado de 0.75rem a 0.85rem */
+    letter-spacing: 0.05em; /* Compacto */
+    text-transform: uppercase;
+    font-weight: 600;
     opacity: 0.85;
+    display: inline-block;
   }
 
   .main-nav a:hover {

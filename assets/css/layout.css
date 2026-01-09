@@ -45,6 +45,32 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: clamp(1.5rem, 4vw, 2rem);
   }
+
+  /* Excepción solicitada: Branding y Editorial se mantienen en 1 columna en móviles grandes/tablets pequeñas para mayor tamaño */
+  #branding .projects-grid,
+  #editorial .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Desktop / Tablet Grande: 3 columnas (o 2 según lógica) */
+@media (min-width: 768px) {
+  /* Restauramos grid base de layout para estas secciones a partir de 768px si se desea, 
+     PERO como hay lógica específica abajo con :has, debemos dejar que esa lógica actúe 
+     o definir explícitamente el comportamiento grid estándar antes de la lógica :has de abajo. 
+     
+     La regla .projects-grid ya define grid-template-columns: repeat(2, ...) en 576px.
+     Si aquí ponemos Branding/Editorial a 1fr, se mantendrá así hasta que otra regla lo pise.
+     
+     Necesitamos asegurar que a partir de cierto punto vuelvan a ser varias columnas si el usuario quiere.
+     El usuario dijo "version de moviles". Asumimos que en Desktop quiere 2 o 3.
+  */
+  
+  #branding .projects-grid,
+  #editorial .projects-grid {
+    /* Reseteamos a 2 columnas (heredado de logic de .projects-grid en este breakpoint o superior) */
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 /* Desktop: 3 columnas */
@@ -81,4 +107,99 @@
 }
 
 /* Caso: 3 o más elementos -> se aplica el estilo normal de media queries de arriba */
+
+
+/* ─────────────────────────────────────────────
+   CONTACTO (Mejora 6)
+   ───────────────────────────────────────────── */
+.contact-layout {
+  display: grid;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+/* Tablet / Desktop: 2 columnas */
+@media (min-width: 768px) {
+  .contact-layout {
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+  }
+}
+
+.contact-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-label-title {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Enlaces genéricos de contacto (Mail y Redes) */
+.contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  font-size: 1rem; /* Mismo tamaño para todos */
+  color: var(--muted); /* Gris base */
+  transition: color 0.2s, transform 0.2s ease-out;
+}
+
+/* Hover: pequeña animación a la derecha y sin subrayado */
+.contact-link:hover {
+  color: var(--text); /* Opcional: oscurecer al hacer hover */
+  transform: translateX(5px); /* Movimiento a la derecha */
+  text-decoration: none;
+}
+
+/* Lista de redes: Vertical obligatorio */
+.contact-social-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: flex-start; /* Alineados a la izquierda */
+}
+
+/* Iconos de Contacto */
+.contact-icon {
+  color: inherit; /* Heredan el color del texto (gris -> oscuro en hover) */
+  flex-shrink: 0;
+}
+  transition: color 0.2s, transform 0.2s;
+  padding: 1.25rem;
+  border: 1px solid var(--border);
+  /* background: var(--bg-alt); opcional */
+}
+
+.contact-item:hover {
+  color: var(--text); /* Negro al hover */
+  border-color: var(--text);
+  /* transform: translateY(-2px); opcional si queremos movimiento */
+}
+
+.contact-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0.7;
+}
+
+.contact-value {
+  font-size: 1.1rem;
+  font-weight: 500;
+  word-break: break-all; /* Para emails largos */
+}
+
+@media (min-width: 640px) {
+  .contact-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 

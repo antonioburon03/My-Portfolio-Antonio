@@ -72,6 +72,53 @@
   border-color: #bbb39a;
 }
 
+/* Efecto Título en Hover (Solo Desktop) */
+@media (min-width: 992px) {
+  .project-card {
+    position: relative; 
+    padding-bottom: 20px; /* Espacio reservado para que no salte el layout al aparecer texto, o si es absoluto */
+    /* De hecho, mejor no reservar y dejar que aparezca absoluto sobreimpreso o debajo fluyendo.
+       Si fluye, moverá cosas. Lo mejor es absoluto o que ya esté ahí opacity 0.
+       Vamos a usar pseudo elemento absolute debajo.
+    */
+    padding-bottom: 0;
+    overflow: visible; /* Permitir ver fuera */
+  }
+
+  .project-card::after {
+    content: attr(data-title);
+    display: block;
+    
+    /* Posicionamiento */
+    position: absolute;
+    top: 100%; /* Justo debajo */
+    left: 0;
+    width: 100%;
+    margin-top: 0.5rem;
+    
+    /* Estilos de texto */
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text);
+    text-align: center; /* Centrado respecto a la card */
+    
+    /* Estado inicial: oculto */
+    opacity: 0;
+    transform: translateY(-5px);
+    transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+    pointer-events: none; /* Que no moleste al click */
+  }
+
+  /* Estado Hover: visible */
+  .project-card:hover::after,
+  .project-card:focus-visible::after {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Accesibilidad: quita el borde por defecto y usa focus-visible */
 .project-card:focus {
   outline: none;
